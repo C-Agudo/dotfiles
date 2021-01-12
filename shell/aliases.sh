@@ -8,6 +8,7 @@ alias la="ls -la"
 alias ~="cd ~"
 alias cdh="cd /mnt/c/Users/ACER-1"
 alias cdc="cd /mnt/d/code"
+alias cdd="cd /mnt/d/Users/ACER-1"
 
 # Git
 alias gaa="git add -A"
