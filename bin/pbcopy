@@ -1,0 +1,6 @@
+#!/bin/bash
+# pbcopy for wsl
+source "/home/carlosgostais/.dotfiles/shell/bash/.bashrc"
+
+cat <&0 | /mnt/c/windows/system32/clip.exe
+exit 0
