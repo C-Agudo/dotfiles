@@ -1,0 +1,87 @@
+"" Source your .vimrc
+"source ~/.vimrc
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+""General settings
+set clipboard+=unnamed
+set clipboard+=ideaput
+set number relativenumber
+set scrolloff=5
+set incsearch
+map Q gq
+nnoremap ,o :e ~/.ideavimrc<CR>
+nnoremap ,r :action IdeaVim.ReloadVimRc.reload<CR>
+let mapleader="\<Space>"
+
+""" Distraction Free Mode
+nnoremap <leader>d :action ToggleDistractionFreeMode<CR>
+
+""" Terminal
+nnoremap <C-t> :action ActivateTerminalToolWindow<CR>
+nnoremap <leader>t :action Terminal.OpenInTerminal<CR>
+
+""" Navigation Windows
+nnoremap <A-S-l> :action SplitVertically<CR>
+nnoremap <A-S-j> :action SplitHorizontally<CR>
+nnoremap <A-S-b> :action MoveEditorToOppositeTabGroup<CR>
+nnoremap <A-S-q> :action CloseAllEditors<CR>
+nnoremap <A-S-x> :action CloseContent<CR>
+
+sethandler <A-j> a:vim
+sethandler <A-k> a:vim
+nnoremap <A-h> <c-w>h
+nnoremap <A-l> <c-w>l
+nnoremap <A-j> <c-w>j
+nnoremap <A-k> <c-w>k
+
+nnoremap <A-S-TAB> :action PreviousTab<CR>
+nnoremap <A-TAB> :action NextTab<CR>
+
+nnoremap <Leader>e :action EditSourceInNewWindow<CR>
+nnoremap <Leader>n :action NextWindow<CR>
+nnoremap <Leader>m :action PreviousWindow<CR>
+
+""" Navigation files
+nnoremap ga :action GotoAction<CR>
+nnoremap gA :action SearchEverywhere<CR>
+nnoremap gF :action GotoFile<CR>
+nnoremap gc :action GotoClass<CR>
+nnoremap gs :action GotoSymbol<CR>
+nmap gl :action RecentLocations<cr>
+nnoremap gu :action FindUsages<CR>
+nnoremap gd :action GotoDeclaration<CR>
+nnoremap gb :action Back<CR>
+nnoremap gf :action Forward<CR>
+nnoremap gi :action GotoImplementation<CR>
+nnoremap gr :action RecentFiles<CR>
+nnoremap gh :action LocalHistory.ShowHistory<CR>
+nnoremap <leader>b :action ShowNavBar<CR>
+
+""" Edit files
+nnoremap <C-f> :action Find<CR>
+nnoremap <C-r> :action Replace<CR>
+nnoremap <A-c> :action CommentByLineComment<CR>
+vnoremap <A-c> :action CommentByLineComment<CR>
+
+""nnoremap <Tab> >>_
+""nnoremap <S-Tab> <<_
+inoremap <S-Tab> <C-D>
+vnoremap <Tab> >gv
+vnoremap <S-Tab> <gv
+
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap V :m '<-2<CR>gv=gv
+
+nnoremap <C-d> <C-d>zz
+nnoremap <C-e> <C-u>zz
+
+nnoremap <leader>o o<Esc>
+nnoremap <leader>O O<Esc>
+
+""" NERDTree
+set NERDTree
+nnoremap <A-n> :NERDTree<CR>
+nnoremap <A-o> :NERDTreeToggle<CR>
+
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
