@@ -48,7 +48,7 @@ modified   = "[](bold yellow) "
 staged     = "[●](bold green) "
 conflicted = "[✖](bold red) "
 untracked  = "[?](bold white) "
-up_to_date = "[](bold green) "
+up_to_date = "[ ](bold green) "
 renamed    = ""
 deleted    = "[!](bold red)"
 
