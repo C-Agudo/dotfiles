@@ -41,6 +41,8 @@ symbol = " "
 [git_status]
 format     = '[$all_status]($style)'
 style      = "cyan"
+show_always = true
+
 ahead      = "⇡${count} "
 diverged   = "⇕⇡${ahead_count}⇣${behind_count} "
 behind     = "⇣${count} "
