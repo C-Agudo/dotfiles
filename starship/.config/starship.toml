@@ -41,7 +41,6 @@ symbol = " "
 [git_status]
 format     = '[$all_status]($style)'
 style      = "cyan"
-show_always = true
 
 ahead      = "⇡${count} "
 diverged   = "⇕⇡${ahead_count}⇣${behind_count} "
@@ -50,11 +49,11 @@ modified   = "[](bold yellow) "
 staged     = "[●](bold green) "
 conflicted = "[✖](bold red) "
 untracked  = "[?](bold white) "
-up_to_date = "[ ](bold green) "
+up_to_date = "[](bold green) "
 renamed    = ""
 deleted    = "[!](bold red)"
 
 [cmd_duration]
-min_time = 0
+min_time = 200
 format = "⏱  [$duration]($style)"
 style = "bold purple"
