@@ -5,10 +5,10 @@ return {
   "stevearc/oil.nvim",
 
   -- Load Oil when opening a directory or when using the keymap
-  lazy = false,
+  event = false,
 
   keys = {
-    { "-", "<CMD>Oil<CR>", desc = "Open Oil (parent dir)" },
+    { "-", "<cmd>Oil --float<CR>", desc = "Open Parent Directory in Oil" },
   },
 
   opts = {
