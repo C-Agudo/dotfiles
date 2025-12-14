@@ -5,3 +5,7 @@ vim.opt.relativenumber = true
 -- vim.g.lazyvim_picker = "fzf"
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+
+-- Forzar bash para la ejecución de comandos externos
+vim.opt.shell = "/bin/bash"
+vim.opt.shellcmdflag = "-lc" -- carga entorno de login

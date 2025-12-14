@@ -1,9 +1,13 @@
 return {
   "saghen/blink.cmp",
+  dependencies = {
+    "rafamadriz/friendly-snippets",
+    "moyiz/blink-emoji.nvim"
+  },
   opts = {
     -- 🌈 Fuentes personalizadas
     sources = {
-      default = { "lsp", "path", "snippets", "buffer", "emoji", "sql" },
+      default = { "lsp", "path", "snippets", "buffer", "dadbod" },
       providers = {
         emoji = {
           module = "blink-emoji",
@@ -14,19 +18,17 @@ return {
             return vim.tbl_contains({ "gitcommit", "markdown" }, vim.o.filetype)
           end,
         },
-        sql = {
-          name = "sql",
-          module = "blink.compat.source",
-          score_offset = -3,
-          opts = {},
-          should_show_items = function()
-            return vim.tbl_contains({ "sql" }, vim.o.filetype)
-          end,
+        dadbod = {
+          name = "Dadbod",
+          module = "vim_dadbod_completion.blink",
+          min_keyword_length = 2,
+          score_offset = 85, -- the higher the number, the higher the priority
         },
       },
     },
 
     -- 🖌️ Menu / iconos + nombres
+    --
     --
     menu = {
       draw = {

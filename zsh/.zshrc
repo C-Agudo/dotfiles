@@ -81,6 +81,11 @@ ZIM_DISABLE_PROMPT_WRAPPING=1
 #############################################
 OMARCHY_ZSH_CONFIG="$HOME/.config/omarchy/zsh"
 
+# init.zsh (adapted to Zsh: mise, starship, zoxide, try, fzf)
+if [[ -f "$OMARCHY_ZSH_CONFIG/init.zsh" ]]; then
+  source "$OMARCHY_ZSH_CONFIG/init.zsh"
+fi
+
 # aliases
 if [[ -f "$OMARCHY_ZSH_CONFIG/aliases.zsh" ]]; then
   source "$OMARCHY_ZSH_CONFIG/aliases.zsh"
@@ -100,10 +105,6 @@ if [[ -f "$OMARCHY_ZSH_CONFIG/exports.zsh" ]]; then
   source "$OMARCHY_ZSH_CONFIG/exports.zsh"
 fi
 
-# init.zsh (adapted to Zsh: mise, starship, zoxide, try, fzf)
-if [[ -f "$OMARCHY_ZSH_CONFIG/init.zsh" ]]; then
-  source "$OMARCHY_ZSH_CONFIG/init.zsh"
-fi
 
 #############################################
 #  Editor & PATH

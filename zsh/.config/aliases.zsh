@@ -1,0 +1,1 @@
+omarchy/zsh/aliases.zsh
