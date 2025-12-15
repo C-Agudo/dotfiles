@@ -15,7 +15,7 @@ return {
       hidden = true,
       -- Example: Prevent conflicts with netrw
       replace_netrw = true,
-      enabled = true
+      enabled = false
     },
     dashboard = { enabled = true },
   },
