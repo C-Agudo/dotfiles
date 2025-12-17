@@ -80,3 +80,26 @@ img2png() {
     -define png:exclude-chunk=all \
     "${img%.*}-optimized.png"
 }
+
+yn() {
+    BASE="$HOME/projects/Blockchain-Accelerator"
+    NOTES_PATH="${BASE}/${1:-}"  # Si no pasas nada, queda solo BASE
+    ~/bin/youtube_nvim.sh 4 "$NOTES_PATH"
+}
+
+vn() {
+    # Fixed workspace
+    WS=3
+
+    # Directory containing videos (default: ~/Downloads)
+    VIDEO_DIR="$$HOME/Downloads"
+    VIDEO_PATH="${VIDEO_DIR}/${1:-}"
+
+    # Base directory for notes
+    BASE_NOTES="$HOME/projects/Blockchain-Accelerator"
+    NOTES_PATH="${BASE_NOTES}/${2:-}"  # Concatenate second argument if provided
+
+    # Launch the video_nvim script
+    ~/bin/video_nvim.sh "$WS" "$VIDEO_PATH" "$NOTES_PATH"
+}
+
