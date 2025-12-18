@@ -92,7 +92,7 @@ vn() {
     WS=3
 
     # Directory containing videos (default: ~/Downloads)
-    VIDEO_DIR="$$HOME/Downloads"
+    VIDEO_DIR="$$HOME/Videos/Blockchain-Accelerator"
     VIDEO_PATH="${VIDEO_DIR}/${1:-}"
 
     # Base directory for notes
