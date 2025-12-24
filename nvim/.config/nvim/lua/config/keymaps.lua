@@ -7,6 +7,8 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("n", "<leader>o", "<cmd>normal! o<CR>", { desc = "Add empty line below" })
 vim.keymap.set("n", "<leader>O", "<cmd>normal! O<CR>", { desc = "Add empty line above" })
 
+vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = 'Hover' })
+
 local wk = require("which-key")
 wk.add({
   {

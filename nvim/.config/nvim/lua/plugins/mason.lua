@@ -13,11 +13,9 @@ return {
         "markdownlint-cli2",
         "marksman",
         "shfmt",
-        "solidity",
         "sqlfluff",
         "stylua",
         "taplo",
-        "vscode-solidity-server",
       },
     },
   }

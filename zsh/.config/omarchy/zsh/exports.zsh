@@ -5,6 +5,7 @@ export LD_LIBRARY_PATH="/usr/lib:$LD_LIBRARY_PATH"
 paths=(
   "$HOME/.local/share/nvim/mason/bin"
   "$GOPATH/bin"
+  "$HOME/.config/nvm/versions/node/v20.19.6/bin"
   "/bin"
   "/usr/local/bin"
   "/usr/bin"

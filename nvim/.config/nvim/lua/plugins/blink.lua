@@ -9,6 +9,11 @@ return {
     sources = {
       default = { "lsp", "path", "snippets", "buffer", "dadbod" },
       providers = {
+        lsp = {
+          name = "LSP",
+          module = "blink.cmp.sources.lsp",
+          score_offset = 100,
+        },
         emoji = {
           module = "blink-emoji",
           name = "Emoji",
@@ -30,71 +35,66 @@ return {
     -- 🖌️ Menu / iconos + nombres
     --
     --
-    menu = {
-      draw = {
-        components = {
-          kind_icon = {
-            text = function(ctx)
-              local kind_icons = {
-                Text = "󰉿",
-                Method = "",
-                Function = "󰊕",
-                Constructor = "",
-                Field = "󰽐",
-                Variable = "󰀫",
-                Class = "",
-                Interface = "",
-                Module = "󰏗",
-                Property = "󰜢",
-                Unit = "",
-                Value = "󰀬",
-                Enum = "",
-                Keyword = "󰌋",
-                Snippet = "",
-                Color = "󰏘",
-                File = "󰈙",
-                Reference = "󰈇",
-                Folder = "󰉋",
-                EnumMember = "",
-                Constant = "󰏿",
-                Struct = "󰙅",
-                Event = "",
-                Operator = "󰆕",
-                TypeParameter = "󰊄",
-              }
 
-              local icon = kind_icons[ctx.kind] or "?"
+    completion = {
+      list = {
+        selection = { preselect = true, auto_insert = true }
+      },
+      trigger = {
+        show_on_insert_on_trigger_character = true, -- Esto ayuda a que el LSP esté listo antes
+      },
+      menu = {
+        draw = {
+          columns = { { "kind_icon", "kind", gap = 1 }, { "label", "label_description" }, },
+          components = {
+            kind_icon = {
+              text = function(ctx)
+                local kind_icons = {
+                  Text = "󰉿",
+                  Method = "",
+                  Function = "󰊕",
+                  Constructor = "",
+                  Field = "󰽐",
+                  Variable = "󰀫",
+                  Class = "",
+                  Interface = "",
+                  Module = "󰏗",
+                  Property = "󰜢",
+                  Unit = "",
+                  Value = "󰀬",
+                  Enum = "",
+                  Keyword = "󰌋",
+                  Snippet = "",
+                  Color = "󰏘",
+                  File = "󰈙",
+                  Reference = "󰈇",
+                  Folder = "󰉋",
+                  EnumMember = "",
+                  Constant = "󰏿",
+                  Struct = "󰙅",
+                  Event = "",
+                  Operator = "󰆕",
+                  TypeParameter = "󰊄",
+                }
 
-              -- Iconos de archivos vía nvim-web-devicons
-              if vim.tbl_contains({ "Path" }, ctx.source_name) then
-                local dev_icon, _ = require("nvim-web-devicons").get_icon(ctx.label)
-                if dev_icon then
-                  icon = dev_icon
-                end
-              end
-
-              -- Icono + nombre del tipo
-              return icon .. " " .. ctx.kind .. ctx.icon_gap
-            end,
-
-            highlight = function(ctx)
-              local hl = ctx.kind_hl
-              if vim.tbl_contains({ "Path" }, ctx.source_name) then
-                local _, dev_hl = require("nvim-web-devicons").get_icon(ctx.label)
-                if dev_hl then
-                  hl = dev_hl
-                end
-              end
-              return hl
-            end,
+                local icon = kind_icons[ctx.kind] or "?"
+                return icon .. " "
+              end,
+            },
+            label = {
+              text = function(ctx)
+                return ctx.label or ctx.abbr or ctx.value or "?"
+              end,
+              source_label = true,
+            },
+            kind = {
+              text = function(ctx)
+                return " [" .. ctx.kind .. "]"
+              end,
+            },
           },
         },
       },
-
-      -- -- 🌟 Preview con colores del tema
-      -- preview = {
-      --   winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual",
-      -- },
     },
   },
 }
